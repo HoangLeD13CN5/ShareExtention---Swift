@@ -50,21 +50,34 @@ extension AppDelegate {
         
         let userDefaults = UserDefaults(suiteName: "group.demo.ShareExtentionRecive")
         if let key = url.absoluteString.components(separatedBy: "=").last,
-            let sharedUrl = userDefaults?.object(forKey: key) as? URL {
-            
-            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-            let homeVC = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-            homeVC.urlPlayer = sharedUrl
-            let navVC = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-            
-            navVC.viewControllers = [homeVC]
-            self.window?.rootViewController = navVC
-            self.window?.makeKeyAndVisible()
-            
-            return true
+            let sharedUrl = userDefaults?.object(forKey: key) as? Data {
+            do {
+                let filePath = self.documentsPathForFileName(name: "video.mp4")
+                let videoFileURL = URL(fileURLWithPath: filePath)
+                try sharedUrl.write(to: videoFileURL, options: .atomic)
+                
+                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                let homeVC = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+                homeVC.urlPlayer = videoFileURL
+                let navVC = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+                
+                navVC.viewControllers = [homeVC]
+                self.window?.rootViewController = navVC
+                self.window?.makeKeyAndVisible()
+                
+                return true
+            } catch let exp {
+                 print("GETTING EXCEPTION \(exp.localizedDescription)")
+               return false
+            }
         }
         
         return false
+    }
+    
+    func documentsPathForFileName(name: String) -> String {
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        return documentsPath.appending(name)
     }
     
 }

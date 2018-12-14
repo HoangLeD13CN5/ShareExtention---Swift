@@ -26,11 +26,27 @@ class ShareViewController: UIViewController {
     }
 
     @IBAction func didTapNext(_ sender: Any) {
-        
+        // open app and send data
+        redirectToHostApp()
     }
     
     @IBAction func didTapCancel(_ sender: Any) {
+        // dismiss share
+        self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
+    }
+    
+    func redirectToHostApp() {
+        let url = URL(string: "ShareExtentionRecive://dataUrl=\(sharedKey)")
+        var responder = self as UIResponder?
+        let selectorOpenURL = sel_registerName("openURL:")
         
+        while (responder != nil) {
+            if (responder?.responds(to: selectorOpenURL))! {
+                let _ = responder?.perform(selectorOpenURL, with: url)
+            }
+            responder = responder!.next
+        }
+        self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
     }
     
     func manageVideos() {
@@ -45,13 +61,18 @@ class ShareViewController: UIViewController {
                     attachment.loadItem(forTypeIdentifier: conentVideo, options: nil) { [weak self] data, error in
                         
                         if error == nil, let url = data as? URL, let this = self {
-                            DispatchQueue.main.async {
-                                // show video
-                                self?.initPlayer(videoUrl: url)
-                                // send app
-                                let userDefaults = UserDefaults(suiteName: "group.demo.ShareExtentionRecive")
-                                userDefaults?.set(url, forKey: this.sharedKey)
-                                userDefaults?.synchronize()
+                            do {
+                                let rawData = try Data(contentsOf: url)
+                                DispatchQueue.main.async {
+                                    // show video
+                                    self?.initPlayer(videoUrl: url)
+                                    // send app
+                                    let userDefaults = UserDefaults(suiteName: "group.demo.ShareExtentionRecive")
+                                    userDefaults?.set(rawData, forKey: this.sharedKey)
+                                    userDefaults?.synchronize()
+                                }
+                            } catch let exp {
+                                print("GETTING EXCEPTION \(exp.localizedDescription)")
                             }
                             
                         } else {

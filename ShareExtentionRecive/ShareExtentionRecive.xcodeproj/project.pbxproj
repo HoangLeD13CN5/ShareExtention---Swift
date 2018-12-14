@@ -54,6 +54,7 @@
 		373B661D21C2345300CE9AC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		373B661F21C2345300CE9AC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		373B662721C2349F00CE9AC3 /* ShareExtentionRecive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtentionRecive.entitlements; sourceTree = "<group>"; };
+		376FB4F021C34A6600A759A8 /* ShareVideo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareVideo.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +110,7 @@
 		373B661921C2345300CE9AC3 /* ShareVideo */ = {
 			isa = PBXGroup;
 			children = (
+				376FB4F021C34A6600A759A8 /* ShareVideo.entitlements */,
 				373B661A21C2345300CE9AC3 /* ShareViewController.swift */,
 				373B661C21C2345300CE9AC3 /* MainInterface.storyboard */,
 				373B661F21C2345300CE9AC3 /* Info.plist */,
@@ -175,6 +177,11 @@
 					};
 					373B661721C2345300CE9AC3 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -433,6 +440,7 @@
 		373B662321C2345300CE9AC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareVideo/ShareVideo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CB7NDRZY49;
 				INFOPLIST_FILE = ShareVideo/Info.plist;
@@ -452,6 +460,7 @@
 		373B662421C2345300CE9AC3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareVideo/ShareVideo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CB7NDRZY49;
 				INFOPLIST_FILE = ShareVideo/Info.plist;
