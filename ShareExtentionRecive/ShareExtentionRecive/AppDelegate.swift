@@ -54,6 +54,7 @@ extension AppDelegate {
             do {
                 let filePath = self.documentsPathForFileName(name: "video.mp4")
                 let videoFileURL = URL(fileURLWithPath: filePath)
+                deleteExistingFile(url: videoFileURL)
                 try sharedUrl.write(to: videoFileURL, options: .atomic)
                 
                 let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
@@ -78,6 +79,16 @@ extension AppDelegate {
     func documentsPathForFileName(name: String) -> String {
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         return documentsPath.appending(name)
+    }
+    
+    func deleteExistingFile(url: URL) {
+        let fileManager = FileManager.default
+        do {
+            try fileManager.removeItem(at: url)
+        }
+        catch _ as NSError {
+            
+        }
     }
     
 }

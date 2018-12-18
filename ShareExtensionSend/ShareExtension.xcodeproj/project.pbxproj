@@ -15,6 +15,7 @@
 		374179EF21C0EB8000933E16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 374179ED21C0EB8000933E16 /* Main.storyboard */; };
 		374179F121C0EB8100933E16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 374179F021C0EB8100933E16 /* Assets.xcassets */; };
 		374179F421C0EB8100933E16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 374179F221C0EB8100933E16 /* LaunchScreen.storyboard */; };
+		65ACFFA48FC9228E93898B17 /* Pods_ShareExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2AFAC035A5C25453653459 /* Pods_ShareExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		15B5188377E9E7689F4ECDAC /* Pods-ShareExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShareExtension/Pods-ShareExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		373B65F021C20AE600CE9AC3 /* panda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panda.png; sourceTree = "<group>"; };
 		373B65F121C20AE600CE9AC3 /* sorry.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = sorry.mov; sourceTree = "<group>"; };
 		373B65F221C20AE700CE9AC3 /* VfE_html5.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = VfE_html5.mp4; sourceTree = "<group>"; };
@@ -41,6 +43,8 @@
 		374179F021C0EB8100933E16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		374179F321C0EB8100933E16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		374179F521C0EB8100933E16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B2AFAC035A5C25453653459 /* Pods_ShareExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D33E0305471E6CE16EF387CE /* Pods-ShareExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShareExtension/Pods-ShareExtension.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,12 +52,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65ACFFA48FC9228E93898B17 /* Pods_ShareExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1AE7960F4BE6F2EAA46E9848 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B2AFAC035A5C25453653459 /* Pods_ShareExtension.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		373B65EF21C20AD900CE9AC3 /* Media */ = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +82,8 @@
 			children = (
 				374179E821C0EB7F00933E16 /* ShareExtension */,
 				374179E721C0EB7F00933E16 /* Products */,
+				F23AD4CE0E8427ED61768F31 /* Pods */,
+				1AE7960F4BE6F2EAA46E9848 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +109,15 @@
 			path = ShareExtension;
 			sourceTree = "<group>";
 		};
+		F23AD4CE0E8427ED61768F31 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15B5188377E9E7689F4ECDAC /* Pods-ShareExtension.debug.xcconfig */,
+				D33E0305471E6CE16EF387CE /* Pods-ShareExtension.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -101,6 +125,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 374179F821C0EB8100933E16 /* Build configuration list for PBXNativeTarget "ShareExtension" */;
 			buildPhases = (
+				7E5876CF79915EFC24462D16 /* [CP] Check Pods Manifest.lock */,
 				374179E221C0EB7F00933E16 /* Sources */,
 				374179E321C0EB7F00933E16 /* Frameworks */,
 				374179E421C0EB7F00933E16 /* Resources */,
@@ -129,7 +154,7 @@
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -168,6 +193,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7E5876CF79915EFC24462D16 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShareExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		374179E221C0EB7F00933E16 /* Sources */ = {
@@ -319,9 +369,9 @@
 		};
 		374179F921C0EB8100933E16 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15B5188377E9E7689F4ECDAC /* Pods-ShareExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CB7NDRZY49;
 				INFOPLIST_FILE = ShareExtension/Info.plist;
@@ -338,9 +388,9 @@
 		};
 		374179FA21C0EB8100933E16 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D33E0305471E6CE16EF387CE /* Pods-ShareExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CB7NDRZY49;
 				INFOPLIST_FILE = ShareExtension/Info.plist;
